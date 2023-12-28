@@ -16,11 +16,6 @@ jobs:
         fetch-depth: 0  # Fetch all history for all branches and tags
         token: ${{ secrets.SuperSecret }} 
 
-    - name: Configure Git
-      run: |
-        git config --global user.name 'jknbis'
-        git config --global user.email 'jake@knbis.com'
-
     - name: Sync Branch X from Y
       run: |
         git checkout main
