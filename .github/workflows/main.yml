@@ -1,0 +1,29 @@
+name: Sync Branches
+
+on:
+  push:
+    branches:
+      - prod
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0  # Fetch all history for all branches and tags
+
+    - name: Configure Git
+      run: |
+        git config --global user.name 'jknbis'
+        git config --global user.email 'jake@knbis.com'
+
+    - name: Sync Branch X from Y
+      run: |
+        git checkout main
+        git merge prod
+        git push origin main
+
+    
