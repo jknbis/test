@@ -14,6 +14,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         fetch-depth: 0  # Fetch all history for all branches and tags
+        token: ${{ secrets.SuperSecret }} 
 
     - name: Configure Git
       run: |
